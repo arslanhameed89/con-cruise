@@ -7,6 +7,7 @@ import { DriverProviders } from './providers/driver.providers';
 import { DriverService } from './services/driver.service';
 import { DriverRepository } from './repository/driver.repository';
 import { DriverSeedCommand } from './seed/driver.seed.command';
+import { DriverListCommand } from './commands/driver.list.command';
 
 @Module({
   imports: [ProvidersModule, CoreModule, ConfigModule],
@@ -16,6 +17,7 @@ import { DriverSeedCommand } from './seed/driver.seed.command';
     DriverService,
     DriverRepository,
     DriverSeedCommand,
+    DriverListCommand
   ],
   exports: [...DriverProviders, DriverService, DriverRepository],
 })
