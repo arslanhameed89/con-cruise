@@ -7,6 +7,7 @@ import { CustomerProviders } from './providers/customer.providers';
 import { CustomerService } from './services/customer.service';
 import { CustomerRepository } from './repository/customer.repository';
 import { CustomerSeedCommand } from './seed/customer.seed.command';
+import { CustomerListCommand } from './commands/customer.list.command';
 
 @Module({
   imports: [ProvidersModule, CoreModule, ConfigModule],
@@ -16,6 +17,7 @@ import { CustomerSeedCommand } from './seed/customer.seed.command';
     CustomerService,
     CustomerRepository,
     CustomerSeedCommand,
+    CustomerListCommand
   ],
   exports: [...CustomerProviders, CustomerService, CustomerRepository],
 })
