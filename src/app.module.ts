@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import appConfig from './config/app.config';
 import { V1Module } from './v1/v1.module';
 import { TestModule } from './test/test.module';
+import { CommandModule } from 'nestjs-command';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { TestModule } from './test/test.module';
     CoreModule,
     V1Module,
     TestModule,
+    CommandModule
   ],
   controllers: [AppController],
   providers: [AppService],
