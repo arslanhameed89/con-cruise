@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { CustomerRepository } from '../repository/customer.repository';
 import { CreateCustomerDto } from '../dto/create-customer.dto';
 import { UpdateCustomerDto } from '../dto/update-customer.dto';
+import { Customer } from '../schemas/customer.schema';
 
 @Injectable()
 export class CustomerService {
@@ -11,11 +12,16 @@ export class CustomerService {
     private configService: ConfigService,
   ) {}
 
-  create(createCustomerDto: CreateCustomerDto) {
-    return 'This action adds a new test';
+  async create(createCustomerDto: CreateCustomerDto): Promise<Customer> {
+    try {
+      return await this.customerRepository.create(<Customer>createCustomerDto);
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
   }
 
-  async createMany(createCustomerDto: CreateCustomerDto[]) {
+  async createMany(createCustomerDto: CreateCustomerDto[]): Promise<any> {
     try {
       return await this.customerRepository.createMany(createCustomerDto);
     } catch (e) {
@@ -32,11 +38,24 @@ export class CustomerService {
     return `This action returns a #${id} test`;
   }
 
-  update(id: number, updateCustomerDto: UpdateCustomerDto) {
-    return `This action updates a #${id} test`;
+  async update(
+    id: string,
+    updateCustomerDto: UpdateCustomerDto,
+  ): Promise<Customer> {
+    try {
+      return await this.customerRepository.update(id, updateCustomerDto);
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} test`;
+  async remove(id: string): Promise<Customer> {
+    try {
+      return await this.customerRepository.delete(id);
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
   }
 }
