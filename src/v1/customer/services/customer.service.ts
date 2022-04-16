@@ -15,6 +15,15 @@ export class CustomerService {
     return 'This action adds a new test';
   }
 
+  async createMany(createCustomerDto: CreateCustomerDto[]) {
+    try {
+      return await this.customerRepository.createMany(createCustomerDto);
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
+  }
+
   findAll() {
     return `This action returns all test`;
   }
