@@ -19,7 +19,7 @@ export interface IRepository<T> {
 
   /**
    * save partial item
-   * @param partial item
+   * @param item
    */
   createPartial(item: Partial<T>): Promise<any>;
 
@@ -39,6 +39,7 @@ export interface IRepository<T> {
   /**
    * find item by query
    * @param query
+   * @param filterFields
    */
   findOneByQuery(
     query: Record<string, any>,
