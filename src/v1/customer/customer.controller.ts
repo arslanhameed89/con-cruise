@@ -11,7 +11,7 @@ import { CustomerService } from './services/customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
 
-@Controller('v1')
+@Controller('v1/customer')
 @ApiTags('customer')
 export class CustomerController {
   constructor(private customerService: CustomerService) {}
