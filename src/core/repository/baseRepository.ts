@@ -17,6 +17,14 @@ export class BaseRepository<T> implements IRepository<T> {
     }
   }
 
+  async createMany(item: T): Promise<any> {
+    try {
+      return await this._model.insertMany(item);
+    } catch (err) {
+      throw err;
+    }
+  }
+
   async createPartial(item: Partial<T>): Promise<any> {
     try {
       const objectToSave = new this._model(item);
