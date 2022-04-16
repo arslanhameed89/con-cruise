@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsOptional } from 'class-validator';
+import { coordinates } from '../schemas/customer.schema';
+import { type } from "os";
 
 export class CreateCustomerDto {
   @ApiProperty()
@@ -22,7 +24,7 @@ export class CreateCustomerDto {
   @IsNotEmpty()
   rating: number;
 
-  @ApiProperty()
+  @ApiProperty({ type: coordinates })
   @IsOptional()
-  coordinates: Record<string, any>;
+  coordinates: coordinates;
 }
