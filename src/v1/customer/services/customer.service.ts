@@ -30,8 +30,13 @@ export class CustomerService {
     }
   }
 
-  findAll() {
-    return `This action returns all test`;
+  async findAll(): Promise<Customer[]> {
+    try {
+      return await this.customerRepository.find();
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
   }
 
   findOne(id: number) {
