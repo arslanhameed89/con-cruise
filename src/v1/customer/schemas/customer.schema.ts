@@ -31,3 +31,5 @@ export class Customer extends Document {
 }
 
 export const customerSchema = SchemaFactory.createForClass(Customer);
+
+customerSchema.index({ coordinates: '2dsphere' });
