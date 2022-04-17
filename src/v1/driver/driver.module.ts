@@ -8,16 +8,19 @@ import { DriverService } from './services/driver.service';
 import { DriverRepository } from './repository/driver.repository';
 import { DriverSeedCommand } from './seed/driver.seed.command';
 import { DriverListCommand } from './commands/driver.list.command';
+import { DriverMatchCommand } from './commands/driver.match.command';
+import { CustomerModule } from '../customer/customer.module';
 
 @Module({
-  imports: [ProvidersModule, CoreModule, ConfigModule],
+  imports: [ProvidersModule, CoreModule, ConfigModule, CustomerModule],
   controllers: [DriverController],
   providers: [
     ...DriverProviders,
     DriverService,
     DriverRepository,
     DriverSeedCommand,
-    DriverListCommand
+    DriverListCommand,
+    DriverMatchCommand,
   ],
   exports: [...DriverProviders, DriverService, DriverRepository],
 })
