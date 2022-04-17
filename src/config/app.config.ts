@@ -17,4 +17,5 @@ export default registerAs('app', () => ({
     PER_PAGE: env.PAGINATION_PER_PAGE || 40,
   },
   TIME_ZONE: env.TIME_ZONE || 'Asia/Dubai',
+  MAX_RADIUS_DISTANCE_KM: env.MAX_RADIUS_DISTANCE_KM || 50,
 }));
