@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 import { CustomerRepository } from '../repository/customer.repository';
 import { CreateCustomerDto } from '../dto/create-customer.dto';
 import { UpdateCustomerDto } from '../dto/update-customer.dto';
@@ -7,10 +6,7 @@ import { Customer } from '../schemas/customer.schema';
 
 @Injectable()
 export class CustomerService {
-  constructor(
-    private customerRepository: CustomerRepository,
-    private configService: ConfigService,
-  ) {}
+  constructor(private customerRepository: CustomerRepository) {}
 
   async create(createCustomerDto: CreateCustomerDto): Promise<Customer> {
     try {

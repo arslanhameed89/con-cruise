@@ -82,7 +82,7 @@ export class DriverService {
       const totalWeightage: number =
         distanceWeightage + ratingWeightage + ridesWeightage;
       matchedResult.push(
-        `Driver ${driver.name} has been matches to customer ${customer.name} with weightage :: ${totalWeightage}`
+        `Driver ${driver.name} has been matches to customer ${customer.name} with weightage :: ${totalWeightage}`,
       );
       matchedDrivers.push(driver._id.toString());
     });

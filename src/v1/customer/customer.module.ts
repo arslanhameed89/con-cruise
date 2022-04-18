@@ -17,7 +17,7 @@ import { CustomerListCommand } from './commands/customer.list.command';
     CustomerService,
     CustomerRepository,
     CustomerSeedCommand,
-    CustomerListCommand
+    CustomerListCommand,
   ],
   exports: [...CustomerProviders, CustomerService, CustomerRepository],
 })

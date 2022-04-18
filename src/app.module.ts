@@ -18,7 +18,7 @@ import { CommandModule } from 'nestjs-command';
     ProvidersModule,
     CoreModule,
     V1Module,
-    CommandModule
+    CommandModule,
   ],
   controllers: [AppController],
   providers: [AppService],
