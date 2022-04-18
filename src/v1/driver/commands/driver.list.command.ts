@@ -14,6 +14,7 @@ export class DriverListCommand {
       console.info('customer data listed process started');
       const data = await this.driverService.findAll();
       console.info(data);
+      process.exit(1);
     } catch (e) {
       console.error(e);
       throw e;

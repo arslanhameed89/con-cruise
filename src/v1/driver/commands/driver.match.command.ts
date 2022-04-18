@@ -39,6 +39,7 @@ export class DriverMatchCommand {
         );*/
       }
       console.info(this.matchedResult, this.matchedDrivers);
+      process.exit(1);
     } catch (e) {
       console.error(e);
       throw e;

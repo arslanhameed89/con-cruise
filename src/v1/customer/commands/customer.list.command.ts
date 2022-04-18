@@ -14,6 +14,7 @@ export class CustomerListCommand {
       console.info('customer data listed process started');
       const data = await this.customerService.findAll();
       console.info(data);
+      process.exit(1);
     } catch (e) {
       console.error(e);
       throw e;
