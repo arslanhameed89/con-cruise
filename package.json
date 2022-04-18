@@ -30,6 +30,7 @@
     "@types/lodash": "^4.14.181",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "cross-port-killer": "^1.4.0",
     "dotenv": "^16.0.0",
     "module-alias": "^2.2.2",
     "mongoose": "^6.3.0",

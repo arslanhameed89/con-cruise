@@ -96,7 +96,15 @@ To match drivers by using mongo 2dSphere index and calculate weightage
 ```shell script
 npx nestjs-command list:match
 ```
+to list all commands and args
+```shell script
+npx nestjs-command manual:help
+```
 
+exit the cli and rest of application
+```shell script
+npx nestjs-command exit
+```
 
 ## Dependency Installation
 ```bash
