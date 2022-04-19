@@ -68,44 +68,6 @@ MAX_RADIUS_DISTANCE_KM=50
 http://localhost:3000/api/
 ```
 
-**RUN SEEDERS FOR CUSTOMER AND DRIVERS DATA**
-
-For Customers
-```shell script
-npx nestjs-command seed:customer
-```
-
-For Drivers
-```shell script
-npx nestjs-command seed:driver
-```
-
-**CLI COMMANDS TO VIEW OUTPUT**
-
-List all existing Customers
-```shell script
-npx nestjs-command list:customer
-```
-
-List all existing drivers
-```shell script
-npx nestjs-command list:cruiser
-```
-
-To match drivers by using mongo 2dSphere index and calculate weightage
-```shell script
-npx nestjs-command list:match
-```
-to list all commands and args
-```shell script
-npx nestjs-command manual:help
-```
-
-exit the cli and rest of application
-```shell script
-npx nestjs-command exit
-```
-
 ## Dependency Installation
 ```bash
 $ npm install
@@ -142,4 +104,42 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+```
+
+**RUN SEEDERS FOR CUSTOMER AND DRIVERS DATA**
+
+For Customers
+```shell script
+npx nestjs-command seed:customer
+```
+
+For Drivers
+```shell script
+npx nestjs-command seed:driver
+```
+
+**CLI COMMANDS TO VIEW OUTPUT**
+
+List all existing Customers
+```shell script
+npx nestjs-command list:customer
+```
+
+List all existing drivers
+```shell script
+npx nestjs-command list:cruiser
+```
+
+To match drivers by using mongo 2dSphere index and calculate weightage
+```shell script
+npx nestjs-command list:match
+```
+to list all commands and args
+```shell script
+npx nestjs-command manual:help
+```
+
+exit the cli and rest of application
+```shell script
+npx nestjs-command exit
 ```
