@@ -3,6 +3,7 @@ import { CustomerRepository } from '../repository/customer.repository';
 import { CreateCustomerDto } from '../dto/create-customer.dto';
 import { UpdateCustomerDto } from '../dto/update-customer.dto';
 import { Customer } from '../schemas/customer.schema';
+import { DeleteCustomersDto } from "../dto/delete-customers.dto";
 
 @Injectable()
 export class CustomerService {
@@ -54,6 +55,19 @@ export class CustomerService {
   async remove(id: string): Promise<Customer> {
     try {
       return await this.customerRepository.delete(id);
+    } catch (e) {
+      console.error(e);
+      throw e;
+    }
+  }
+
+  async removeManyByIds(
+    DeleteCustomersDto: DeleteCustomersDto,
+  ): Promise<Customer> {
+    try {
+      return await this.customerRepository.deleteManyByIds(
+        DeleteCustomersDto.ids,
+      );
     } catch (e) {
       console.error(e);
       throw e;
