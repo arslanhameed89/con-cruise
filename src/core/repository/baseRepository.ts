@@ -135,6 +135,20 @@ export class BaseRepository<T> implements IRepository<T> {
     }
   }
 
+  async deleteManyByIds(ids: string[]): Promise<any> {
+    try {
+      return await this._model
+        .deleteMany({
+          _id: {
+            $in: ids,
+          },
+        })
+        .exec();
+    } catch (err) {
+      throw err;
+    }
+  }
+
   async find(query = {}): Promise<any> {
     try {
       return await this._model.find(query).lean().exec();
