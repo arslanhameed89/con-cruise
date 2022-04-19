@@ -12,9 +12,12 @@ export class DriverService {
     private configService: ConfigService,
   ) {}
 
-  async findAll(): Promise<Driver[]> {
+  async findAll(
+    query: Record<string, any> = {},
+    fields: Record<string, any> = {},
+  ): Promise<Driver[]> {
     try {
-      return await this.driverRepository.find();
+      return await this.driverRepository.findAllByQuery(query, fields);
     } catch (e) {
       console.error(e);
       throw e;
@@ -81,9 +84,12 @@ export class DriverService {
 
       const totalWeightage: number =
         distanceWeightage + ratingWeightage + ridesWeightage;
-      matchedResult.push(
-        `Driver ${driver.name} has been matches to customer ${customer.name} with weightage :: ${totalWeightage}`,
-      );
+      matchedResult.push({
+        driver: driver.name,
+        customer: customer.name,
+        distance: `${span} KM`,
+        weightage: totalWeightage,
+      });
       matchedDrivers.push(driver._id.toString());
     });
     return { matchedResult, matchedDrivers };

@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Command } from 'nestjs-command';
 import { DriverService } from '../services/driver.service';
 import { CustomerService } from '../../customer/services/customer.service';
-import { isEmpty } from 'lodash';
+import { isEmpty, keyBy, mapValues, omit } from "lodash";
 
 @Injectable()
 export class DriverMatchCommand {
@@ -38,11 +38,30 @@ export class DriverMatchCommand {
           `===========================${ item.name } :: ${count++}============================================`,
         );*/
       }
-      console.info(this.matchedResult, this.matchedDrivers);
+      const idleDrivers = await this.processIdleDrivers();
+
+      console.info({
+        idleDrivers,
+      });
+
+      console.info({
+        matchedDrivers: this.matchedResult,
+      });
       process.exit(1);
     } catch (e) {
       console.error(e);
       throw e;
     }
+  }
+
+  private async processIdleDrivers() {
+    const allDrivers = await this.driverService.findAll(
+      {},
+      { _id: 1, name: 1 },
+    );
+    const mapDrivers = mapValues(keyBy(allDrivers, '_id'), 'name');
+    const idleDrivers = omit(mapDrivers, this.matchedDrivers);
+
+    return Object.values(idleDrivers);
   }
 }
