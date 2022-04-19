@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsOptional } from 'class-validator';
 import { coordinates } from '../schemas/customer.schema';
-import { type } from "os";
 
 export class CreateCustomerDto {
   @ApiProperty()
