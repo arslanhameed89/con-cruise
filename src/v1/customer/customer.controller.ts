@@ -4,6 +4,7 @@ import { CustomerService } from './services/customer.service';
 import { CreateCustomerDto } from './dto/create-customer.dto';
 import { UpdateCustomerDto } from './dto/update-customer.dto';
 import { Customer } from './schemas/customer.schema';
+import { DeleteCustomersDto } from './dto/delete-customers.dto';
 
 @Controller('v1/customer')
 @ApiTags('customer')
@@ -23,8 +24,8 @@ export class CustomerController {
     return this.customerService.update(id, updateCustomerDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.customerService.remove(id);
+  @Delete()
+  remove(@Body() deleteCustomersDto: DeleteCustomersDto) {
+    return this.customerService.removeManyByIds(deleteCustomersDto);
   }
 }
